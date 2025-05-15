@@ -1,18 +1,21 @@
-def calculate_BMI(h:int, w:int):
-    BMI = w/(h/100)**2
+def calculate_BMI(height:int, weight:int):
+    if weight < 30 or weight > 200:
+            raise Exception("輸入體重低於30或高於200")
+    if height < 120 or height > 220:
+            raise Exception("輸入身高低於120或高於220")
+    
+    BMI = weight/(height/100)**2
     return BMI
 
 def main():
     #計算BMI
     try:
         weight:int = int(input("請輸入體重:"))
-        if weight < 30 or weight > 200:
-            raise Exception("輸入體重低於30或高於200")
+        
         print(f"體重:{weight} Kg")
         
         height:int = int(input("請輸入身高:")) 
-        if height < 120 or height > 220:
-            raise Exception("輸入身高低於120或高於220")
+        
         print(f'身高:{height} cm')
 
         BMI = calculate_BMI(height, weight)
