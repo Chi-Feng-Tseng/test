@@ -1,5 +1,6 @@
 
-import tools
+#import tools
+from tools import calculate_BMI, get_state
 def main():
     #計算BMI
     try:
@@ -8,10 +9,10 @@ def main():
         
         height:int = int(input("請輸入身高:")) 
         print(f'身高:{height} cm')
-        BMI = tools.calculate_BMI(height, weight)
+        BMI = calculate_BMI(height, weight)
 
         print(f'BMI:{BMI:.2f}')
-        print(tools.get_state(BMI))
+        print(get_state(BMI))
         
 
     except ValueError:
