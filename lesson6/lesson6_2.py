@@ -18,7 +18,6 @@ def main():
         print(f'BMI:{BMI:.2f}')
         print(b(BMI))
         
-
     except ValueError:
         print("輸入數值非int型態")
 
