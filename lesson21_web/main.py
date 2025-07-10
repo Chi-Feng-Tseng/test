@@ -15,5 +15,7 @@ def index(question:string=""):
         response = client.models.generate_content(
          model = "gemini-2.5-flash", contents = f"{question},回應請輸出成為heml格式"
         )    
-        
+        html_format = response.text
+        html_format = response.text.replace("```html","").replace("```","")
+        return html_format
 
