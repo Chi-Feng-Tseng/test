@@ -1,13 +1,19 @@
 from flask import Flask
 from markupsafe import escape
+from google import genai
 
 app = Flask(__name__)
 
 @app.route("/")
-def index():
-    return "<h1>這是上課用的網頁!</h1>"
+@app.route("/<string:question>")
+def index(question:string=""):
+    if question=="" :
 
-@app.route("/user/<name>")
-def show_name(name):
-    return f"<h1>您好, {escape(name)}</h1>"
+        return "<h1>我是Gemini的小助手</h1>"
+    else:
+        client = genai.Client()
+        response = client.models.generate_content(
+         model = "gemini-2.5-flash", contents = f"{question},回應請輸出成為heml格式"
+        )    
+        
 
