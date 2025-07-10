@@ -10,3 +10,4 @@ def index():
 @app.route("/user/<name>")
 def show_name(name):
     return f"<h1>您好, {escape(name)}</h1>"
+
